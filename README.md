@@ -48,12 +48,43 @@ The L298N is a dual H-Bridge motor driver which allows speed and direction contr
 
 ![image](https://user-images.githubusercontent.com/71547910/235333546-0cfa7d3a-24a4-483b-bbef-b78fcaa05670.png)
 
-
-
-
-
 ## PROGRAM:
+```
+#define in1 6
+#define in2 7
+#define button 4
+int rotDirection = 0;
+int pressed = false;
+int bs;
+void setup() {
+  
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(button, INPUT);
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+}
+void loop() {
+   
+  bs=digitalRead(button);
+  if (bs==1) {
+    digitalWrite(in1, HIGH);
+    digitalWrite(in2, LOW);
+    
+    delay(20);
+  }
+  else if(bs==0)  {
+     digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
+    delay(20);
+        
+  }
+  
+}
+```
 ## CIRCUIT DIAGRAM:
+![235618752-c40db7f1-bb35-4458-b303-8d7ddc40adb4](https://github.com/Jeevithha/Motor-Interfacing-/assets/123623197/8ca462dd-356c-4f39-8692-398e2cb7511c)
 ## OUTPUT:
+![235618847-0083c408-e696-4993-8945-18d9c66a206d](https://github.com/Jeevithha/Motor-Interfacing-/assets/123623197/6319cc69-7013-4943-9699-8e680e708293)
 ## RESULT:
 Thus the motor was controlled using driver circuits, relays and Arduino UNO controller.
